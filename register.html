@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Registration | CampusEvents</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h2>CampusEvents</h2>
+
+            <div>
+                <a href="index.html">Home</a>
+                <a href="index.html#events">Events</a>
+                <a href="dashboard.html">Dashboard</a>
+                <button type="button" id="logoutButton">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>Register for an Event</h1>
+            <p>Join exciting activities at your college!</p>
+        </section>
+
+        <section>
+            <form id="registrationForm">
+
+                <h2>Event Registration</h2>
+
+                <p id="statusMessage" role="status" aria-live="polite"></p>
+
+                <label for="selectedEvent">Select Event</label>
+
+                <select id="selectedEvent" name="eventName" required>
+                    <option value="">Choose an event</option>
+                    <option value="Cultural Fest">Cultural Fest</option>
+                    <option value="Technical Workshop">Technical Workshop</option>
+                    <option value="Sports Day">Sports Day</option>
+                </select>
+
+                <label for="studentName">Student Name</label>
+
+                <input
+                    type="text"
+                    id="studentName"
+                    name="studentName"
+                    autocomplete="name"
+                    required
+                    readonly
+                >
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    readonly
+                >
+
+                <label for="studentId">Student ID</label>
+
+                <input
+                    type="text"
+                    id="studentId"
+                    name="studentId"
+                    maxlength="50"
+                    required
+                >
+
+                <label for="course">Course</label>
+
+                <select id="course" name="course" required>
+                    <option value="">Select your course</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BSc">BSc</option>
+                    <option value="BCom">BCom</option>
+                    <option value="BA">BA</option>
+                    <option value="BBA">BBA</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button type="submit" id="submitButton">
+                    Submit Registration
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CampusEvents. All rights reserved.</p>
+    </footer>
+
+    <script src="register.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Student Dashboard | CampusEvents</title>
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+    :root {
+        --dashboard-primary: #6c4cff;
+        --dashboard-secondary: #8b5cf6;
+        --dashboard-text: #25213b;
+        --dashboard-muted: #77748b;
+        --dashboard-border: #ece9f5;
+        --dashboard-surface: #ffffff;
+    }
+
+    body {
+        background:
+            radial-gradient(ellipse at top left, #f0ebff 0, transparent 38%),
+            #f8f7fc;
+        color: var(--dashboard-text);
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--dashboard-border);
+    }
+
+    header nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    header nav h2 {
+        margin: 0;
+        color: var(--dashboard-primary);
+    }
+
+    header nav > div {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    header nav a {
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+    }
+
+    header nav a:hover {
+        color: var(--dashboard-primary);
+    }
+
+    #logoutButton {
+        padding: 10px 18px;
+        border: 0;
+        border-radius: 9px;
+        background: #fff0f0;
+        color: #c03945;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    #logoutButton:hover {
+        background: #ffe0e0;
+        transform: translateY(-2px);
+    }
+
+    .dashboard-welcome {
+        position: relative;
+        overflow: hidden;
+        margin-top: 30px;
+        padding: 45px 30px;
+        border-radius: 24px;
+        background: linear-gradient(135deg, #6044e8, #9474ff);
+        color: #ffffff;
+        box-shadow: 0 15px 35px rgba(108, 76, 255, 0.2);
+    }
+
+    .dashboard-welcome::after {
+        content: "🎓";
+        position: absolute;
+        right: 35px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: clamp(65px, 10vw, 120px);
+        opacity: 0.17;
+        pointer-events: none;
+    }
+
+    .welcome-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+    }
+
+    .welcome-label {
+        display: inline-block;
+        padding: 7px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.13);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.4px;
+    }
+
+    .dashboard-welcome h1 {
+        margin: 18px 0 12px;
+        font-size: clamp(27px, 4vw, 42px);
+        line-height: 1.2;
+    }
+
+    .dashboard-welcome p {
+        margin: 0;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.91);
+    }
+
+    .dashboard-section {
+        margin-top: 38px;
+    }
+
+    .section-heading {
+        margin-bottom: 20px;
+    }
+
+    .section-heading h2,
+    .dashboard-section > h2 {
+        margin-bottom: 8px;
+        font-size: clamp(21px, 3vw, 27px);
+    }
+
+    .section-heading p {
+        margin-top: 0;
+        color: var(--dashboard-muted);
+    }
+
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .stat-card {
+        position: relative;
+        overflow: hidden;
+        padding: 25px;
+        border: 1px solid var(--dashboard-border);
+        border-radius: 18px;
+        background: var(--dashboard-surface);
+        box-shadow: 0 5px 18px rgba(43, 32, 85, 0.045);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .stat-card:hover {

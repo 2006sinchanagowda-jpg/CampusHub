@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6c4cf1">
+
+    <meta name="description"
+        content="Discover college events, explore cultural festivals, technical workshops and sports, and register through CampusEvents.">
+
+    <title>CampusEvents | Discover Your Campus</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hero {
+            min-height: 310px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: homepageFadeIn 0.6s ease-out both;
+        }
+
+        .hero-label {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .hero .hero-description {
+            max-width: 650px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .hero .hero-actions .btn {
+            min-width: 145px;
+        }
+
+        .hero .hero-actions .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+        }
+
+        .hero .hero-actions .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 0;
+        }
+
+        .section-intro {
+            margin-bottom: 20px;
+        }
+
+        .event-controls {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 15px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e8e5f5;
+            border-radius: 15px;
+        }
+
+        .event-control {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .event-control label {
+            font-weight: 600;
+            color: #353047;
+        }
+
+        .event-control input,
+        .event-control select {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid #d8d3e8;
+            border-radius: 9px;
+            background: #ffffff;
+            color: #29243a;
+            font: inherit;
+        }
+
+        .event-control input:focus,
+        .event-control select:focus {
+            outline: 2px solid #6c4cf1;
+            outline-offset: 2px;
+        }
+
+        .event-search {
+            margin-bottom: 12px;
+        }
+
+        .event-card {
+            overflow: hidden;
+        }
+
+        .event-card .event-image {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 13px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: 5px 11px;
+            border-radius: 20px;
+            background: #eee9ff;
+            color: #5135d5;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .event-card .event-date {
+            color: #5135d5;
+            font-weight: 700;
+        }
+
+        .event-card .event-description {
+            margin-bottom: 10px;
+        }
+
+        .event-card .event-action {
+            width: 100%;
+            margin-top: auto;
+            padding-top: 18px;
+        }
+
+        .event-card .event-action .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .event-card[hidden] {
+            display: none !important;
+        }
+
+        .search-summary {
+            min-height: 25px;
+            margin: 10px 0 18px;
+            color: #77758c;
+            font-size: 14px;
+        }
+
+        .welcome-panel {
+            padding: 30px;
+            border: 1px solid #e8e5f5;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 8px 25px rgba(37, 33, 59, 0.06);
+        }
+
+        .welcome-panel h2 {
+            margin-bottom: 10px;
+        }
+
+        .welcome-panel p {
+            color: #77758c;
+            margin-bottom: 18px;
+        }
+
+        .welcome-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .homepage-section {
+            margin-bottom: 45px;
+        }
+
+        .events-grid .event-card {
+            animation: homepageFadeIn 0.5s ease-out both;
+        }
+
+        .events-grid .event-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .events-grid .event-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .event-card:hover .event-image {
+            transform: scale(1.025);
+        }
+
+        @keyframes homepageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .event-controls {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-actions {
+                width: 100%;
+            }
+
+            .hero .hero-actions .btn {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+            }
+
+            .event-card .event-image {
+                height: 175px;
+            }
+
+            .welcome-panel {
+                padding: 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero,
+            .events-grid .event-card {
+                animation: none !important;
+            }
+
+            .event-card .event-image {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h2>CampusEvents</h2>
+
+        <nav aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="#events">Events</a>
+            <a href="login.html">Login</a>
+            <a href="student-register.html">Create Account</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+
+            <span class="hero-label">YOUR CAMPUS, YOUR COMMUNITY</span>
+
+            <h1>Make Your Campus Life Memorable</h1>
+
+            <p class="hero-description">
+                Discover exciting college events, explore your interests,
+                meet new people, and create unforgettable memories.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#events" class="btn">Explore Events</a>
+
+                <a href="student-register.html" class="btn btn-secondary">
+                    Join CampusEvents
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="homepage-section">
+
+            <div class="section-heading">
+                <h2>Upcoming College Events</h2>
+            </div>
+
+            <p class="section-intro">
+                Find your next campus experience. Search by name,
+                filter by category, or sort events by name and date.
+            </p>
+
+            <!-- Search, filter and sorting controls -->
+            <div class="event-controls">
+
+                <div class="event-control">
+                    <label for="eventSearch">🔍 Search Events</label>
+
+                    <input
+                        type="search"
+                        id="eventSearch"
+                        placeholder="Search event name or description..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="event-control">
+                    <label for="categoryFilter">🏷️ Filter by Category</label>
+
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="technical">Technical</option>
+                        <option value="sports">Sports</option>
+                    </select>
+                </div>
+
+                <div class="event-control">
+                    <label for="sortEvents">↕️ Sort Events</label>
+
+                    <select id="sortEvents">
+                        <option value="default">Default Order</option>
+                        <option value="name-asc">Name: A–Z</option>
+                        <option value="date-asc">Date: Earliest First</option>
+                        <option value="date-desc">Date: Latest First</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <p
+                id="searchMessage"
+                class="search-summary"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <!-- Event Cards -->
+            <div class="events-grid" id="eventContainer">
+
+                <!-- Cultural Fest -->
+                <article
+                    class="event-card"
+                    data-category="cultural"
+                    data-date="2026-11-25"
+                    data-default-order="1"
+                >
+
+                    <img
+                        class="event-image"
+                        src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=80"
+                        alt="People enjoying a live music festival"
+                        loading="lazy"
+                    >
+
+                    <span class="event-badge">CULTURAL</span>
+
+                    <h3>Cultural Fest</h3>
+
+                    <p class="event-description">
+                        Enjoy music, dance, singing, and exciting cultural
+                        performances with your friends.
+                    </p>
+
+                    <p><strong>Category:</strong> Cultural</p>
+
+                    <p class="event-date">
+                        <strong>Date:</strong> 25 November 2026
+                    </p>
+
+                    <div class="event-action">
+                        <a
+                            href="register.html?event=Cultural%20Fest"
+                            class="btn"
+                        >
+                            Register Now
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- Technical Workshop -->
+                <article
+                    class="event-card"
+                    data-category="technical"
+                    data-date="2026-12-05"
+                    data-default-order="2"
+                >
+
+                    <img
+                        class="event-image"
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                        alt="Students learning and working with technology"
+                        loading="lazy"
+                    >
+
+                    <span class="event-badge">TECHNICAL</span>
+
+                    <h3>Technical Workshop</h3>
+
+                    <p class="event-description">
+                        Learn programming, develop your technical skills,
+                        and explore new technologies.
+                    </p>
+
+                    <p><strong>Category:</strong> Technical</p>
+
+                    <p class="event-date">
+                        <strong>Date:</strong> 5 December 2026
+                    </p>
+
+                    <div class="event-action">
+                        <a
+                            href="register.html?event=Technical%20Workshop"
+                            class="btn"
+                        >
+                            Register Now
+                        </a>
+                    </div>
+
+                </article>
+
+                <!-- Sports Day -->
+                <article
+                    class="event-card"
+                    data-category="sports"
+                    data-date="2026-12-15"
+                    data-default-order="3"
+                >
+
+                    <img
+                        class="event-image"
+                        src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80"
+                        alt="Athletes participating in a running competition"
+                        loading="lazy"
+                    >
+
+                    <span class="event-badge">SPORTS</span>
+
+                    <h3>Sports Day</h3>
+
+                    <p class="event-description">
+                        Participate in exciting games, running events,
+                        and sports competitions.
+                    </p>
+
+                    <p><strong>Category:</strong> Sports</p>
+
+                    <p class="event-date">
+                        <strong>Date:</strong> 15 December 2026
+                    </p>
+
+                    <div class="event-action">
+                        <a
+                            href="register.html?event=Sports%20Day"
+                            class="btn"
+                        >
+                            Register Now
+                        </a>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Student Welcome Section -->
+        <section class="welcome-panel homepage-section">
+
+            <h2>Start Your Campus Journey</h2>
+
+            <p>
+                Sign in to your student account or create an account
+                to get started with CampusEvents.
+            </p>
+
+            <div class="welcome-actions">
+
+                <a href="login.html" class="btn">
+                    Student Login
+                </a>
+
+                <a href="student-register.html" class="btn">
+                    Create Account
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            &copy; 2026 CampusEvents |
+            Student Event Management
+        </p>
+    </footer>
+
+    <!-- External JavaScript avoids inline-script CSP blocking -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login | CampusEvents</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .login-container {
+            max-width: 480px;
+            margin: 35px auto;
+        }
+
+        .login-heading {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .login-heading .login-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .login-card {
+            padding: 30px;
+            border-radius: 16px;
+            background: var(--card-bg, #ffffff);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .login-card label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: 600;
+        }
+
+        .login-card input {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 46px;
+            padding: 12px;
+            border: 1px solid #d5d5df;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .password-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: stretch;
+        }
+
+        .password-wrapper input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .password-toggle {
+            padding: 8px 12px;
+            border: 1px solid #d5d5df;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .login-submit {
+            width: 100%;
+            margin-top: 24px;
+            min-height: 46px;
+        }
+
+        #statusMessage {
+            overflow-wrap: anywhere;
+            line-height: 1.5;
+        }
+
+        .login-links {
+            text-align: center;
+            margin-top: 22px;
+            line-height: 2;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                margin: 20px auto;
+            }
+
+            .login-card {
+                padding: 20px;
+            }
+
+            .password-toggle {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h2>CampusEvents</h2>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#events">Events</a>
+            <a href="login.html">Login</a>
+            <a href="student-register.html">Create Account</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="hero">
+            <h1>Welcome Back!</h1>
+            <p>Sign in to discover events and manage your college activities.</p>
+        </section>
+
+        <!-- Login Form -->
+        <section class="login-container">
+
+            <div class="login-heading">
+                <div class="login-icon" aria-hidden="true">🎓</div>
+                <p>Sign in to your student account to continue.</p>
+            </div>
+
+            <div class="login-card">
+
+                <h2>Student Login</h2>
+
+                <p id="statusMessage" role="status" aria-live="polite"></p>
+
+                <form id="loginForm">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                            aria-controls="password"
+                            aria-pressed="false"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <button type="submit" id="loginButton" class="login-submit">
+                        Login
+                    </button>
+
+                </form>
+
+                <div class="login-links">
+                    <p>
+                        Don't have an account?
+                        <a href="student-register.html">Create Account</a>
+                    </p>
+
+                    <p>
+                        <a href="index.html">← Back to Home</a>
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CampusEvents | Student Event Management</p>
+    </footer>
+
+    <!-- Password visibility control -->
+    <script>
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            const isPasswordHidden = passwordInput.type === 'password';
+
+            passwordInput.type = isPasswordHidden ? 'text' : 'password';
+            togglePassword.textContent = isPasswordHidden ? 'Hide' : 'Show';
+            togglePassword.setAttribute('aria-pressed', String(isPasswordHidden));
+        });
+    </script>
+
+    <!-- Existing backend login functionality -->
+    <script src="login.js"></script>
+
+</body>
+
+</html>

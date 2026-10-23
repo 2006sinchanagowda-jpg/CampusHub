@@ -1,0 +1,1077 @@
+/* =========================================
+   CampusEvents - Professional Purple Theme
+   Complete Responsive Version
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6c4cf1;
+    --primary-dark: #5135d5;
+    --primary-light: #eee9ff;
+    --secondary: #a78bfa;
+    --background: #f7f7ff;
+    --white: #ffffff;
+    --text: #25213b;
+    --muted: #77758c;
+    --border: #e8e5f5;
+    --success: #16865c;
+    --danger: #dc3545;
+    --shadow: 0 8px 25px rgba(37, 33, 59, 0.06);
+    --shadow-hover: 0 16px 35px rgba(108, 76, 241, 0.14);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overflow-wrap: break-word;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    min-width: 0;
+}
+
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   Navigation Bar
+========================================= */
+
+header {
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 15px rgba(37, 33, 59, 0.04);
+    backdrop-filter: blur(12px);
+}
+
+header > h2 {
+    color: var(--primary);
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    padding: 14px 24px 0;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 14px 24px 18px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 26px;
+}
+
+nav a {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+nav a[href="student-register.html"] {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 17px;
+    border-radius: 10px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+nav a[href="student-register.html"]:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+nav button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+nav button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Main Container
+========================================= */
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 42px 24px;
+}
+
+section {
+    margin-bottom: 48px;
+}
+
+section > h2 {
+    font-size: clamp(23px, 3vw, 30px);
+    line-height: 1.3;
+    margin-bottom: 18px;
+    color: var(--text);
+    letter-spacing: -0.5px;
+}
+
+section > p {
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #5135d5 0%,
+        #6c4cf1 45%,
+        #a78bfa 100%
+    );
+    color: var(--white);
+    padding: 76px 32px;
+    border-radius: 26px;
+    text-align: center;
+    margin-bottom: 55px;
+    box-shadow: 0 18px 40px rgba(108, 76, 241, 0.2);
+    animation: campusFadeIn 0.7s ease-out both;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 260px;
+    height: 260px;
+    top: -130px;
+    left: -70px;
+}
+
+.hero::after {
+    width: 330px;
+    height: 330px;
+    bottom: -210px;
+    right: -80px;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 1;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.hero h1 #studentName,
+.hero #studentName {
+    color: #ffffff !important;
+}
+
+.hero p {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.hero .btn {
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+    color: var(--primary);
+}
+
+.hero .btn:hover {
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+/* Homepage hero buttons */
+
+.hero-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-actions .btn {
+    margin: 0;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+
+.btn,
+button[type="submit"],
+.event-card button,
+section > a button {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 11px;
+    font-weight: 700;
+    text-align: center;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover,
+button[type="submit"]:hover,
+.event-card button:hover,
+section > a button:hover {
+    background: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(108, 76, 241, 0.22);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================================
+   Event Search and Category Filter
+========================================= */
+
+.event-search {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    width: 100%;
+    max-width: 100%;
+    padding: 22px;
+    margin: 24px 0 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.event-search label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.event-search input,
+.event-search select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #ded9f0;
+    border-radius: 11px;
+    background: #ffffff;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-search input::placeholder {
+    color: #9995ac;
+}
+
+.event-search input:focus,
+.event-search select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(108, 76, 241, 0.11);
+}
+
+#searchMessage {
+    min-height: 25px;
+    color: var(--muted);
+    font-size: 14px;
+    margin: 12px 2px 18px;
+}
+
+/* =========================================
+   Event Cards
+========================================= */
+
+.events-grid,
+#registrationsList {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+}
+
+.event-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    width: 100%;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 27px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow-wrap: anywhere;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    animation: campusFadeIn 0.6s ease-out both;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: #d5c9ff;
+}
+
+.event-card h3 {
+    color: var(--primary);
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 13px;
+}
+
+.event-card p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 7px 0;
+    overflow-wrap: anywhere;
+}
+
+.event-card p strong {
+    color: var(--text);
+}
+
+.event-card a {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 18px;
+    max-width: 100%;
+}
+
+.event-card a button {
+    min-width: 120px;
+    max-width: 100%;
+}
+
+.event-card .btn {
+    margin-top: 15px;
+}
+
+/* Stagger the first three homepage event cards */
+
+.events-grid .event-card:nth-child(2) {
+    animation-delay: 0.12s;
+}
+
+.events-grid .event-card:nth-child(3) {
+    animation-delay: 0.24s;
+}
+
+/* =========================================
+   Event Images
+========================================= */
+
+.event-card img,
+.event-image {
+    width: 100%;
+    max-width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 13px;
+    margin-bottom: 18px;
+    transition: transform 0.35s ease;
+}
+
+.event-card img {
+    background: var(--primary-light);
+}
+
+.event-card:hover img,
+.event-card:hover .event-image {
+    transform: scale(1.025);
+}
+
+/* =========================================
+   General Forms
+========================================= */
+
+form {
+    max-width: 550px;
+    width: 100%;
+    margin: 25px auto;
+    padding: 32px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+form label {
+    display: block;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    margin: 18px 0 7px;
+}
+
+form input,
+form select,
+form textarea {
+    display: block;
+    width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border: 1px solid #dcd8eb;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(108, 76, 241, 0.11);
+}
+
+form input[readonly] {
+    background: #f1effb;
+    color: var(--muted);
+}
+
+form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+form button[type="submit"] {
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* =========================================
+   Dashboard and Profile Elements
+========================================= */
+
+.profile-card,
+.dashboard-card,
+.panel,
+.card {
+    min-width: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.profile-card h2,
+.dashboard-card h2,
+.panel h2,
+.card h2 {
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+#studentName,
+#profileName {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.hero #studentName {
+    color: #ffffff !important;
+}
+
+#profileEmail {
+    color: var(--muted);
+    overflow-wrap: anywhere;
+}
+
+#profileStatus {
+    color: var(--success);
+    font-weight: 700;
+}
+
+#registrationsList .event-card {
+    min-width: 0;
+}
+
+/* =========================================
+   Status Messages
+========================================= */
+
+#statusMessage {
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.success-message {
+    color: var(--success);
+}
+
+.error-message {
+    color: var(--danger);
+}
+
+#statusMessage:empty,
+#searchMessage:empty {
+    display: none;
+}
+
+/* =========================================
+   Links
+========================================= */
+
+main a:not(.event-card a):not(.btn) {
+    transition: color 0.2s ease;
+}
+
+main a:not(.event-card a):not(.btn):hover {
+    color: var(--primary-dark);
+}
+
+/* =========================================
+   Footer
+========================================= */
+
+footer {
+    background: #211b3a;
+    color: #e7e2ff;
+    text-align: center;
+    padding: 27px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* =========================================
+   Tablet Search Layout
+========================================= */
+
+@media (min-width: 700px) {
+    .event-search {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 18px;
+        align-items: center;
+    }
+
+    .event-search label {
+        align-self: end;
+    }
+
+    .event-search input,
+    .event-search select {
+        grid-row: auto;
+    }
+}
+
+/* =========================================
+   Tablet Layout
+========================================= */
+
+@media (max-width: 900px) {
+    .events-grid,
+    #registrationsList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    header > h2 {
+        padding: 14px 22px 0;
+        font-size: 25px;
+    }
+
+    nav {
+        justify-content: flex-start;
+        gap: 14px 22px;
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .hero {
+        padding: 60px 28px;
+    }
+
+    .container {
+        padding: 32px 20px;
+    }
+}
+
+/* =========================================
+   Mobile Layout
+========================================= */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 26px 16px;
+    }
+
+    section {
+        margin-bottom: 36px;
+    }
+
+    section > h2 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    header > h2 {
+        padding: 13px 16px 4px;
+        font-size: 24px;
+    }
+
+    nav {
+        width: 100%;
+        padding: 12px 16px 16px;
+        gap: 10px 14px;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    nav a[href="student-register.html"] {
+        padding: 9px 12px;
+        min-height: 44px;
+    }
+
+    nav button {
+        padding: 9px 12px;
+        min-height: 44px;
+    }
+
+    .hero {
+        padding: 42px 18px;
+        border-radius: 19px;
+        margin-bottom: 38px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 7vw, 34px);
+        letter-spacing: -0.5px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Stack hero buttons on small screens */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .event-search {
+        width: 100%;
+        padding: 17px;
+        border-radius: 15px;
+    }
+
+    .event-search input,
+    .event-search select {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    /* One event card per row on mobile */
+    .events-grid,
+    #registrationsList {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .event-card {
+        width: 100%;
+        padding: 23px;
+        border-radius: 17px;
+    }
+
+    .event-card h3 {
+        font-size: 21px;
+    }
+
+    .event-card img,
+    .event-image {
+        height: 175px;
+    }
+
+    .event-card a,
+    .event-card a button {
+        max-width: 100%;
+    }
+
+    form {
+        width: 100%;
+        max-width: 100%;
+        padding: 23px 18px;
+        border-radius: 16px;
+    }
+
+    form input,
+    form select,
+    form textarea,
+    form button[type="submit"] {
+        width: 100%;
+    }
+
+    .profile-card,
+    .dashboard-card,
+    .panel,
+    .card {
+        width: 100%;
+        padding: 19px;
+    }
+
+    #profileEmail {
+        overflow-wrap: anywhere;
+    }
+
+    footer {
+        padding: 22px 16px;
+        margin-top: 35px;
+    }
+
+    button,
+    .btn,
+    button[type="submit"] {
+        min-height: 44px;
+    }
+}
+
+/* =========================================
+   Small Mobile Screens
+========================================= */
+
+@media (max-width: 360px) {
+    .container {
+        padding: 22px 12px;
+    }
+
+    header > h2 {
+        padding: 13px 12px 4px;
+        font-size: 21px;
+    }
+
+    nav {
+        gap: 10px 11px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 36px 15px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .event-card {
+        padding: 19px;
+    }
+
+    form {
+        padding: 20px 14px;
+    }
+}
+
+/* =========================================
+   Accessibility
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+/* =========================================
+   Animations
+========================================= */
+
+@keyframes campusFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   Reduced Motion
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero,
+    .event-card {
+        animation: none !important;
+    }
+
+    .event-card img,
+    .event-card .event-image {
+        transition: none !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   CampusHub visual polish
+   Shared improvements for all application pages
+========================================= */
+
+:root {
+    --primary: #6848e8;
+    --primary-dark: #4d31c5;
+    --primary-light: #f0ecff;
+    --secondary: #a78bfa;
+    --background: #f7f8ff;
+    --white: #ffffff;
+    --text: #211b35;
+    --muted: #77738b;
+    --border: #e9e5f5;
+    --success: #16865c;
+    --danger: #dc3545;
+    --shadow: 0 10px 28px rgba(38, 27, 79, 0.07);
+    --shadow-hover: 0 18px 38px rgba(79, 49, 197, 0.16);
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(233, 229, 245, 0.9);
+    box-shadow: 0 5px 22px rgba(38, 27, 79, 0.045);
+    backdrop-filter: blur(16px);
+}
+
+header > h2,
+header nav h2 {
+    letter-spacing: -0.7px;
+}
+
+nav a {
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.container {
+    padding-top: clamp(26px, 4vw, 46px);
+    padding-bottom: clamp(30px, 5vw, 56px);
+}
+
+.hero {
+    background: radial-gradient(circle at 12% 12%, rgba(255,255,255,.20), transparent 28%),
+                radial-gradient(circle at 90% 85%, rgba(255,255,255,.15), transparent 30%),
+                linear-gradient(130deg, #4930c5 0%, #6848e8 52%, #9b7bff 100%);
+    border: 1px solid rgba(255,255,255,.28);
+    box-shadow: 0 22px 55px rgba(104, 72, 232, .22);
+}
+
+.btn,
+button[type="submit"],
+.event-card button,
+section > a button {
+    border-radius: 12px;
+    box-shadow: 0 5px 14px rgba(104, 72, 232, .10);
+}
+
+.event-search,
+.event-controls {
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.event-card,
+.stat-card,
+.login-card,
+.signup-card,
+.welcome-panel,
+.dashboard-welcome {
+    border-radius: 20px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.event-card {
+    border-color: rgba(233, 229, 245, .95);
+    box-shadow: var(--shadow);
+}
+
+.event-card:hover,
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.event-card img,
+.event-card .event-image {
+    border-radius: 13px;
+}
+
+input,
+select,
+textarea {
+    border-radius: 11px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(104, 72, 232, .12);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+}
+
+main {
+    animation: campusHubEnter .45s ease-out both;
+}
+
+@keyframes campusHubEnter {
+    from { opacity: 0; transform: translateY(7px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 760px) {
+    .container { padding-left: 16px; padding-right: 16px; }
+    .hero { border-radius: 20px; padding: 46px 20px; }
+    .event-card { padding: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}

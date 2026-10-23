@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Sign Up | CampusEvents</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .signup-container {
+            max-width: 520px;
+            margin: 35px auto;
+        }
+
+        .signup-heading {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .signup-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .signup-card {
+            padding: 30px;
+            border-radius: 16px;
+            background: var(--card-bg, #ffffff);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .signup-card h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .signup-card label {
+            display: block;
+            margin: 18px 0 8px;
+            font-weight: 600;
+        }
+
+        .signup-card input {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 46px;
+            padding: 12px;
+            border: 1px solid #d5d5df;
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        .password-wrapper {
+            display: flex;
+            gap: 8px;
+            align-items: stretch;
+        }
+
+        .password-wrapper input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .password-toggle {
+            padding: 8px 12px;
+            border: 1px solid #d5d5df;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .signup-submit {
+            width: 100%;
+            min-height: 46px;
+            margin-top: 25px;
+        }
+
+        #statusMessage {
+            overflow-wrap: anywhere;
+            line-height: 1.5;
+        }
+
+        .signup-links {
+            text-align: center;
+            margin-top: 22px;
+            line-height: 1.8;
+        }
+
+        .password-help {
+            font-size: 0.9rem;
+            margin-top: 7px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 480px) {
+            .signup-container {
+                margin: 20px auto;
+            }
+
+            .signup-card {
+                padding: 20px;
+            }
+
+            .password-toggle {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <h2>CampusEvents</h2>
+
+            <div>
+                <a href="index.html">Home</a>
+                <a href="index.html#events">Events</a>
+                <a href="login.html">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Welcome Section -->
+        <section class="hero">
+            <h1>Create Your Student Account</h1>
+            <p>Join CampusEvents and discover exciting college events.</p>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="signup-container">
+
+            <div class="signup-heading">
+                <div class="signup-icon" aria-hidden="true">🎓</div>
+                <p>Create your account to start registering for events.</p>
+            </div>
+
+            <div class="signup-card">
+
+                <h2>Student Sign Up</h2>
+
+                <p id="statusMessage" role="status" aria-live="polite"></p>
+
+                <form id="studentRegisterForm">
+
+                    <label for="studentName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        name="studentName"
+                        placeholder="Enter your full name"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        maxlength="100"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            minlength="8"
+                            maxlength="72"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-password-target="password"
+                            aria-pressed="false"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <p class="password-help">
+                        Your password must contain at least 8 characters.
+                    </p>
+
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Enter your password again"
+                            minlength="8"
+                            maxlength="72"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-password-target="confirmPassword"
+                            aria-pressed="false"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        id="createAccountButton"
+                        class="signup-submit"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+                <div class="signup-links">
+                    <p>
+                        Already have an account?
+                        <a href="login.html">Login here</a>
+                    </p>
+
+                    <p>
+                        <a href="index.html">← Back to Home</a>
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 CampusEvents | Student Event Management</p>
+    </footer>
+
+    <!-- Show/Hide Password -->
+    <script>
+        document.querySelectorAll('.password-toggle').forEach(function (button) {
+            button.addEventListener('click', function () {
+                const targetId = button.dataset.passwordTarget;
+                const passwordInput = document.getElementById(targetId);
+
+                const isHidden = passwordInput.type === 'password';
+
+                passwordInput.type = isHidden ? 'text' : 'password';
+                button.textContent = isHidden ? 'Hide' : 'Show';
+                button.setAttribute('aria-pressed', String(isHidden));
+            });
+        });
+    </script>
+
+    <!-- Existing account registration functionality -->
+    <script src="student-register.js"></script>
+
+</body>
+
+</html>
