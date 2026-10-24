@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -121,21 +122,8 @@
             outline-offset: 2px;
         }
 
-        .event-search {
-            margin-bottom: 12px;
-        }
-
         .event-card {
             overflow: hidden;
-        }
-
-        .event-card .event-image {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 13px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
         }
 
         .event-badge {
@@ -221,10 +209,6 @@
             animation-delay: 0.2s;
         }
 
-        .event-card:hover .event-image {
-            transform: scale(1.025);
-        }
-
         @keyframes homepageFadeIn {
             from {
                 opacity: 0;
@@ -262,10 +246,6 @@
                 align-items: flex-start;
             }
 
-            .event-card .event-image {
-                height: 175px;
-            }
-
             .welcome-panel {
                 padding: 22px;
             }
@@ -275,10 +255,6 @@
             .hero,
             .events-grid .event-card {
                 animation: none !important;
-            }
-
-            .event-card .event-image {
-                transition: none !important;
             }
         }
     </style>
@@ -379,7 +355,7 @@
                 aria-live="polite"
             ></p>
 
-            <!-- Event Cards -->
+            <!-- Event Cards - Images Removed -->
             <div class="events-grid" id="eventContainer">
 
                 <!-- Cultural Fest -->
@@ -389,13 +365,6 @@
                     data-date="2026-11-25"
                     data-default-order="1"
                 >
-
-                    <img
-                        class="event-image"
-                        src="/images/cultural-fest.jpg"
-                        alt="People enjoying a live music festival"
-                        loading="lazy"
-                    >
 
                     <span class="event-badge">CULTURAL</span>
 
@@ -431,13 +400,6 @@
                     data-default-order="2"
                 >
 
-                    <img
-                        class="event-image"
-                       src="/images/technical-workshop.jpg"
-                        alt="Students learning and working with technology"
-                        loading="lazy"
-                    >
-
                     <span class="event-badge">TECHNICAL</span>
 
                     <h3>Technical Workshop</h3>
@@ -471,13 +433,6 @@
                     data-date="2026-12-15"
                     data-default-order="3"
                 >
-
-                    <img
-                        class="event-image"
-                     src="/images/sports-day.jpg"
-                        alt="Athletes participating in a running competition"
-                        loading="lazy"
-                    >
 
                     <span class="event-badge">SPORTS</span>
 
@@ -543,7 +498,6 @@
         </p>
     </footer>
 
-    <!-- External JavaScript avoids inline-script CSP blocking -->
     <script src="script.js" defer></script>
 
 </body>
